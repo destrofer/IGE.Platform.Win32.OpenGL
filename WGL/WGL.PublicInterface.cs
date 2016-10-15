@@ -27,5 +27,7 @@ namespace IGE.Platform.Win32 {
 		public static bool ShareLists(IntPtr hRCShare, IntPtr hRCSource) { return Delegates.ShareLists(hRCShare, hRCSource) != 0; }
 		public static bool DeleteContext(IntPtr hRC) { return Delegates.DeleteContext(hRC) != 0; }
 		public static IntPtr GetProcAddress(string lpszProc) { return Delegates.GetProcAddress == null ? IntPtr.Zero : Delegates.GetProcAddress(lpszProc); }
-	}	
+		public static bool SwapInterval(int interval) { return Delegates.SwapIntervalEXT != null && Delegates.SwapIntervalEXT(interval) != 0; }
+		public static int GetSwapInterval() { return (Delegates.GetSwapIntervalEXT != null) ? Delegates.GetSwapIntervalEXT() : 0; }
+	}
 }

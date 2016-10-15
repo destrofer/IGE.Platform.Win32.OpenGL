@@ -61,5 +61,13 @@ namespace IGE.Platform.Win32 {
 		public IOpenGLWindow CreateWindow(INativeWindow parent, int x, int y, int width, int height) {
 			return new OpenGLWindow(parent, x, y, width, height);
 		}
+		
+		public bool SetBufferSwapInterval(int interval) {
+			return WGL.SwapInterval(interval);
+		}
+		
+		public int GetBufferSwapInterval() {
+			return WGL.GetSwapInterval();
+		}
 	}
 }
