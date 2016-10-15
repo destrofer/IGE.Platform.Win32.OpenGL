@@ -161,7 +161,8 @@ namespace IGE.Platform {
 		protected virtual void OnIdle() {
 			if( m_DeviceContext != null && BeforeRenderFrameEvent != null ) BeforeRenderFrameEvent();
 			if( m_DeviceContext != null && RenderFrameEvent != null ) RenderFrameEvent();
-			SwapBuffers();
+			if( GameConfig.AutoSwapBuffers )
+				SwapBuffers();
 			if( m_DeviceContext != null && AfterRenderFrameEvent != null ) AfterRenderFrameEvent();
 		}
 	
